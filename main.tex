@@ -1,0 +1,139 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+
+\usetheme{Madrid}
+\usecolortheme{default}
+
+%------------------------------------------------------------
+%This block of code defines the information to appear in the
+%Title page
+\title[Monolithic vs. Microservices] %optional
+{Monolithic vs. Microservice Architecture: A Performance and Scalability Evaluation}
+
+\subtitle{Análise de Desempenho e Escalabilidade}
+
+\author[Jefferson Uchoa Ponte] % (optional)
+{Jefferson Uchoa Ponte\\
+Baseado no artigo de: Jose Luis Vazquez-Poletti, Adrian Mallmann, Guilherme Zambon, Marco Netto}
+
+\institute[UECE] % (optional)
+{
+  Universidade Estadual do Ceará (UECE) \\
+  Engenharia de Software \\
+  Prof. Matheus Paixão
+}
+
+\date[Junho 2024] % (optional)
+{Junho de 2024}
+
+%End of title page configuration block
+%------------------------------------------------------------
+
+\begin{document}
+
+%The next statement creates the title page.
+\frame{\titlepage}
+
+\section{Introdução}
+
+\begin{frame}
+\frametitle{Introdução}
+\begin{itemize}
+    \item Microservices: Melhora disponibilidade, tolerância a falhas, escalabilidade e agilidade.
+    \item Monolithic: Aplicações tradicionais com uma única base de código.
+\end{itemize}
+\end{frame}
+
+\section{Objetivo do Estudo}
+
+\begin{frame}
+\frametitle{Objetivo do Estudo}
+Comparar a performance e escalabilidade das arquiteturas monolítica e de microserviços:
+\begin{itemize}
+    \item Aplicação web de referência.
+    \item Tecnologias: Java vs. C\# .NET.
+    \item Ambientes: Local, Azure Spring Cloud, Azure App Service.
+\end{itemize}
+\end{frame}
+
+\section{Metodologia}
+
+\begin{frame}
+\frametitle{Metodologia}
+\begin{itemize}
+    \item Implementação de quatro versões da aplicação:
+    \begin{itemize}
+        \item Monolítica em Java e C\# .NET.
+        \item Microserviços em Java e C\# .NET.
+    \end{itemize}
+    \item Experimentos realizados em três ambientes de deployment:
+    \begin{itemize}
+        \item Local
+        \item Azure Spring Cloud
+        \item Azure App Service
+    \end{itemize}
+    \item Critérios de avaliação:
+    \begin{itemize}
+        \item Performance em máquina única
+        \item Escalabilidade vertical (aumento de recursos na mesma máquina)
+        \item Escalabilidade horizontal (adição de instâncias)
+        \item Impacto da tecnologia (Java vs. C\# .NET)
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Configuração dos Experimentos}
+\begin{itemize}
+    \item Configuração das máquinas:
+    \begin{itemize}
+        \item Local: Máquina com processador quad-core e 16GB de RAM.
+        \item Azure: Configurações variadas de instâncias (pequenas a grandes).
+    \end{itemize}
+    \item Ferramentas de monitoramento e teste:
+    \begin{itemize}
+        \item JMeter para simulação de carga.
+        \item Azure Monitor para métricas de desempenho.
+    \end{itemize}
+    \item Cenários de teste:
+    \begin{itemize}
+        \item Testes de carga com diferentes níveis de concorrência.
+        \item Medição de tempo de resposta, throughput e uso de recursos.
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\section{Resultados Principais}
+
+\begin{frame}
+\frametitle{Resultados Principais}
+\begin{itemize}
+    \item Desempenho em Máquina Única: Monolíticas têm melhor desempenho.
+    \item Java vs. .NET: Java melhor em máquinas poderosas, .NET melhor em máquinas menos potentes.
+    \item Escalabilidade Vertical vs. Horizontal: Vertical é mais econômica no Azure.
+    \item Limite de Instâncias: Aumento excessivo degrada a performance.
+    \item Impacto da Tecnologia: Implementação (Java ou C\# .NET) não afeta escalabilidade.
+\end{itemize}
+\end{frame}
+
+\section{Conclusão}
+
+\begin{frame}
+\frametitle{Conclusão}
+\begin{itemize}
+    \item Monolítica: Simplicidade, facilidade de teste, deploy, debug e monitoramento.
+    \item Microserviços: Melhor para aplicações complexas e grandes, com desafios em comunicação e gestão de dados.
+\end{itemize}
+\end{frame}
+
+\section{Discussão}
+
+\begin{frame}
+\frametitle{Discussão}
+\begin{itemize}
+    \item Microserviços: Vantajosos para sistemas com alta demanda e complexidade.
+    \item Monolíticas: Adequadas para pequenas empresas ou sistemas de menor escala.
+\end{itemize}
+\end{frame}
+
+\end{document}
