@@ -1,5 +1,7 @@
 \documentclass{beamer}
 \usepackage[utf8]{inputenc}
+\usepackage{graphicx} % Para incluir gráficos
+\usepackage{caption}
 
 \usetheme{Madrid}
 \usecolortheme{default}
@@ -14,7 +16,7 @@
 
 \author[Jefferson Uchoa Ponte] % (optional)
 {Jefferson Uchoa Ponte\\
-Baseado no artigo de: Jose Luis Vazquez-Poletti, Adrian Mallmann, Guilherme Zambon, Marco Netto}
+Baseado no artigo de: Grzegorz Blinowski, Anna Ojdowska, Adam Przybyłek}
 
 \institute[UECE] % (optional)
 {
@@ -39,8 +41,37 @@ Baseado no artigo de: Jose Luis Vazquez-Poletti, Adrian Mallmann, Guilherme Zamb
 \begin{frame}
 \frametitle{Introdução}
 \begin{itemize}
-    \item Microservices: Melhora disponibilidade, tolerância a falhas, escalabilidade e agilidade.
-    \item Monolithic: Aplicações tradicionais com uma única base de código.
+    \item Pioneiros: Netflix começou a transição de uma arquitetura monolítica para microserviços em 2009.
+    \item Popularização: Ganhou tração em 2014 com a publicação de Lewis e Fowler e os relatos de sucesso da Netflix.
+    \item Adesão de Empresas Globais: Amazon, eBay, Spotify, Uber, Airbnb, LinkedIn, entre outras, adotaram microserviços para lidar com o aumento da complexidade e demanda.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Desafios e Benefícios}
+\begin{itemize}
+    \item Desafios dos Microserviços:
+    \begin{itemize}
+        \item Identificação de limites de microserviços ideais.
+        \item Orquestração de serviços complexos.
+        \item Manutenção da consistência de dados e gestão de transações.
+        \item Aumento do consumo de recursos computacionais.
+    \end{itemize}
+    \item Benefícios dos Microserviços:
+    \begin{itemize}
+        \item Melhor escalabilidade horizontal.
+        \item Facilidade de manutenção e desenvolvimento independente.
+        \item Maior tolerância a falhas.
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Motivação para o Estudo}
+\begin{itemize}
+    \item Pequenas Empresas: Avaliar se pequenas empresas realmente se beneficiam da migração para microserviços como as grandes empresas.
+    \item Escalabilidade Vertical vs. Horizontal: Examinar a efetividade da escalabilidade vertical em comparação com a horizontal para sistemas de menor escala.
+    \item Evidências Empíricas: Preencher a lacuna de conhecimento sobre os benefícios reais da migração para microserviços para sistemas com menor demanda.
 \end{itemize}
 \end{frame}
 
@@ -53,6 +84,41 @@ Comparar a performance e escalabilidade das arquiteturas monolítica e de micros
     \item Aplicação web de referência.
     \item Tecnologias: Java vs. C\# .NET.
     \item Ambientes: Local, Azure Spring Cloud, Azure App Service.
+\end{itemize}
+\end{frame}
+
+\section{Perguntas da Pesquisa}
+
+\begin{frame}
+\frametitle{Perguntas da Pesquisa}
+\begin{itemize}
+    \item (RQ1) Qual a diferença de desempenho entre aplicações monolíticas e microserviços?
+    \item (RQ2) Qual das duas abordagens de arquiteturas deverá ser escolhida para ter o melhor benefício em uma aplicação para ser escalada?
+    \item (RQ3) Em quais circunstâncias a tecnologia de implementação usada (Java vs C\# .NET) possue vantagens e desvantagens?
+\end{itemize}
+\end{frame}
+
+\section{Background}
+
+\begin{frame}
+\frametitle{Arquitetura Monolítica}
+
+\begin{itemize}
+    \item Definição: Aplicações monolíticas são construídas como uma única unidade onde todas as funcionalidades são implementadas e implantadas juntas.
+    \item Simplicidade: Mais fáceis de testar, implantar, depurar e monitorar.
+    \item Desvantagens: À medida que a aplicação cresce, a complexidade aumenta, tornando mais difícil modificar e manter.
+    \item Desempenho: Melhor em um ambiente de máquina única devido à comunicação intra-processo.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Arquitetura de Microserviços}
+\begin{itemize}
+    \item Definição: Decompõe o domínio de negócios em pequenos serviços autônomos e independentes que são implantáveis separadamente.
+    \item Autonomia: Cada microserviço é independente, facilitando a manutenção e o desenvolvimento.
+    \item Escalabilidade: Escala bem horizontalmente, permitindo adicionar mais instâncias conforme necessário.
+    \item Desafios: Requer maior esforço em orquestração, manutenção de consistência de dados e gestão de transações.
+    \item Desempenho: Pode ter overhead devido à comunicação entre processos (IPC), mas compensa em sistemas de alta demanda.
 \end{itemize}
 \end{frame}
 
@@ -115,6 +181,8 @@ Comparar a performance e escalabilidade das arquiteturas monolítica e de micros
     \item Impacto da Tecnologia: Implementação (Java ou C\# .NET) não afeta escalabilidade.
 \end{itemize}
 \end{frame}
+
+
 
 \section{Conclusão}
 
