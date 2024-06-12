@@ -41,38 +41,41 @@ Baseado no artigo de: Grzegorz Blinowski, Anna Ojdowska, Adam Przybyłek}
 \begin{frame}
 \frametitle{Introdução}
 \begin{itemize}
-    \item Pioneiros: Netflix começou a transição de uma arquitetura monolítica para microserviços em 2009.
-    \item 2011 oficialmente cunhado e anunciado na 33rd Degree Conference in Kraków
-    \item Popularização: Ganhou tração em 2014 com a publicação de Lewis e Fowler e os relatos de sucesso da Netflix.
-    \item Adesão de Empresas Globais: Amazon, eBay, Spotify, Uber, Airbnb, LinkedIn, entre outras, adotaram microserviços para lidar com o aumento da complexidade e demanda.
+    \item \textbf{Pioneiros}: Netflix iniciou a transição de monolítica para microserviços em 2009.
+    \item \textbf{Oficialmente cunhado}: Termo oficialmente cunhado em 2011, após um ano anunciado na 33rd Degree Conference in Kraków.
+    \item \textbf{Popularização}: Ganhou tração em 2014 com a publicação de Lewis e Fowler e os relatos de sucesso da Netflix.
+    \item \textbf{Adesão de Empresas Globais}: Amazon, eBay, Spotify, Uber, Airbnb, LinkedIn, entre outras, adotaram microserviços.
 \end{itemize}
 \end{frame}
 
 \begin{frame}
 \frametitle{Desafios e Benefícios}
-\begin{itemize}
-    \item Desafios dos Microserviços:
+\begin{columns}
+    \column{0.5\textwidth}
+    \textbf{Desafios dos Microserviços}:
     \begin{itemize}
-        \item Identificação de limites de microserviços ideais.
+        \item Identificação de limites de microserviços.
         \item Orquestração de serviços complexos.
-        \item Manutenção da consistência de dados e gestão de transações.
-        \item Aumento do consumo de recursos computacionais.
+        \item Manutenção da consistência de dados.
+        \item Aumento do consumo de recursos.
     \end{itemize}
-    \item Benefícios dos Microserviços:
+
+    \column{0.5\textwidth}
+    \textbf{Benefícios dos Microserviços}:
     \begin{itemize}
         \item Melhor escalabilidade horizontal.
-        \item Facilidade de manutenção e desenvolvimento independente.
+        \item Facilidade de manutenção independente.
         \item Maior tolerância a falhas.
     \end{itemize}
-\end{itemize}
+\end{columns}
 \end{frame}
 
 \begin{frame}
 \frametitle{Motivação para o Estudo}
 \begin{itemize}
-    \item Pequenas Empresas: Avaliar se pequenas empresas realmente se beneficiam da migração para microserviços como as grandes empresas.
-    \item Escalabilidade Vertical vs. Horizontal: Examinar a efetividade da escalabilidade vertical em comparação com a horizontal para sistemas de menor escala.
-    \item Evidências Empíricas: Preencher a lacuna de conhecimento sobre os benefícios reais da migração para microserviços para sistemas com menor demanda.
+    \item \textbf{Pequenas Empresas}: Avaliar benefícios reais da migração para microserviços.
+    \item \textbf{Escalabilidade Vertical vs. Horizontal}: Efetividade para sistemas menores.
+    \item \textbf{Evidências Empíricas}: Preencher a lacuna de conhecimento sobre os benefícios reais.
 \end{itemize}
 \end{frame}
 
@@ -80,11 +83,13 @@ Baseado no artigo de: Grzegorz Blinowski, Anna Ojdowska, Adam Przybyłek}
 
 \begin{frame}
 \frametitle{Objetivo do Estudo}
-Comparar a performance e escalabilidade das arquiteturas monolítica e de microserviços:
 \begin{itemize}
-    \item Aplicação web de referência.
-    \item Tecnologias: Java vs. C\# .NET.
-    \item Ambientes: Local, Azure Spring Cloud, Azure App Service.
+    \item Comparar a performance e escalabilidade das arquiteturas monolítica e de microserviços:
+    \begin{itemize}
+        \item Aplicação web de referência.
+        \item Tecnologias: Java vs. C\# .NET.
+        \item Ambientes: Local, Azure Spring Cloud, Azure App Service.
+    \end{itemize}
 \end{itemize}
 \end{frame}
 
@@ -93,9 +98,9 @@ Comparar a performance e escalabilidade das arquiteturas monolítica e de micros
 \begin{frame}
 \frametitle{Perguntas da Pesquisa}
 \begin{itemize}
-    \item (RQ1) Qual a diferença de desempenho entre aplicações monolíticas e microserviços?
-    \item (RQ2) Qual das duas abordagens de arquiteturas deverá ser escolhida para ter o melhor benefício em uma aplicação para ser escalada?
-    \item (RQ3) Em quais circunstâncias a tecnologia de implementação usada (Java vs C\# .NET) possue vantagens e desvantagens?
+    \item \textbf{(RQ1)} Qual a diferença de desempenho entre aplicações monolíticas e microserviços?
+    \item \textbf{(RQ2)} Qual abordagem arquitetural oferece melhor escalabilidade?
+    \item \textbf{(RQ3)} Em quais circunstâncias a tecnologia de implementação (Java vs C\# .NET) tem vantagens e desvantagens?
 \end{itemize}
 \end{frame}
 
@@ -103,23 +108,22 @@ Comparar a performance e escalabilidade das arquiteturas monolítica e de micros
 
 \begin{frame}
 \frametitle{Arquitetura Monolítica}
-
 \begin{itemize}
-    \item Definição: Aplicações monolíticas são construídas como uma única unidade onde todas as funcionalidades são implementadas e implantadas juntas.
-    \item Simplicidade: Mais fáceis de testar, implantar, depurar e monitorar.
-    \item Desvantagens: À medida que a aplicação cresce, a complexidade aumenta, tornando mais difícil modificar e manter.
-    \item Desempenho: Melhor em um ambiente de máquina única devido à comunicação intra-processo.
+    \item \textbf{Definição}: Aplicações construídas como uma única unidade.
+    \item \textbf{Simplicidade}: Fáceis de testar, implantar, depurar e monitorar.
+    \item \textbf{Desvantagens}: Complexidade crescente torna difícil modificar e manter.
+    \item \textbf{Desempenho}: Melhor em máquina única devido à comunicação intra-processo.
 \end{itemize}
 \end{frame}
 
 \begin{frame}
 \frametitle{Arquitetura de Microserviços}
 \begin{itemize}
-    \item Definição: Decompõe o domínio de negócios em pequenos serviços autônomos e independentes que são implantáveis separadamente.
-    \item Autonomia: Cada microserviço é independente, facilitando a manutenção e o desenvolvimento.
-    \item Escalabilidade: Escala bem horizontalmente, permitindo adicionar mais instâncias conforme necessário.
-    \item Desafios: Requer maior esforço em orquestração, manutenção de consistência de dados e gestão de transações.
-    \item Desempenho: Pode ter overhead devido à comunicação entre processos (IPC), mas compensa em sistemas de alta demanda.
+    \item \textbf{Definição}: Decompõe o domínio de negócios em pequenos serviços autônomos.
+    \item \textbf{Autonomia}: Independência facilita manutenção e desenvolvimento.
+    \item \textbf{Escalabilidade}: Escala bem horizontalmente.
+    \item \textbf{Desafios}: Orquestração, consistência de dados e gestão de transações.
+    \item \textbf{Desempenho}: Pode ter overhead devido à comunicação entre processos (IPC), mas compensa em sistemas de alta demanda.
 \end{itemize}
 \end{frame}
 
@@ -133,7 +137,7 @@ Comparar a performance e escalabilidade das arquiteturas monolítica e de micros
         \item Monolítica em Java e C\# .NET.
         \item Microserviços em Java e C\# .NET.
     \end{itemize}
-    \item Experimentos realizados em três ambientes de deployment:
+    \item Experimentos em três ambientes:
     \begin{itemize}
         \item Local
         \item Azure Spring Cloud
@@ -142,8 +146,8 @@ Comparar a performance e escalabilidade das arquiteturas monolítica e de micros
     \item Critérios de avaliação:
     \begin{itemize}
         \item Performance em máquina única
-        \item Escalabilidade vertical (aumento de recursos na mesma máquina)
-        \item Escalabilidade horizontal (adição de instâncias)
+        \item Escalabilidade vertical
+        \item Escalabilidade horizontal
         \item Impacto da tecnologia (Java vs. C\# .NET)
     \end{itemize}
 \end{itemize}
@@ -152,17 +156,17 @@ Comparar a performance e escalabilidade das arquiteturas monolítica e de micros
 \begin{frame}
 \frametitle{Configuração dos Experimentos}
 \begin{itemize}
-    \item Configuração das máquinas:
+    \item \textbf{Máquinas}:
     \begin{itemize}
-        \item Local:  PC com Microsoft Windows 10 Enterprise - Intel(R) Core(TM) i7-9850H CPU 2.60GHz, six physical, 12 logical cores, and 32 GB RAM (Dell Precision 7540).
-        \item Azure: Configurações variadas de instâncias (pequenas a grandes).
+        \item Local: PC com Windows 10, Intel Core i7, 32 GB RAM.
+        \item Azure: Instâncias variadas (pequenas a grandes).
     \end{itemize}
-    \item Ferramentas de monitoramento e teste:
+    \item \textbf{Ferramentas}:
     \begin{itemize}
         \item JMeter para simulação de carga.
         \item Azure Monitor para métricas de desempenho.
     \end{itemize}
-    \item Cenários de teste:
+    \item \textbf{Cenários de teste}:
     \begin{itemize}
         \item Testes de carga com diferentes níveis de concorrência.
         \item Medição de tempo de resposta, throughput e uso de recursos.
@@ -175,23 +179,21 @@ Comparar a performance e escalabilidade das arquiteturas monolítica e de micros
 \begin{frame}
 \frametitle{Resultados Principais}
 \begin{itemize}
-    \item Desempenho em Máquina Única: Monolíticas têm melhor desempenho.
-    \item Java vs. .NET: Java melhor em máquinas poderosas, .NET melhor em máquinas menos potentes.
-    \item Escalabilidade Vertical vs. Horizontal: Vertical é mais econômica no Azure.
-    \item Limite de Instâncias: Aumento excessivo degrada a performance.
-    \item Impacto da Tecnologia: Implementação (Java ou C\# .NET) não afeta escalabilidade.
+    \item \textbf{Desempenho em Máquina Única}: Monolíticas têm melhor desempenho.
+    \item \textbf{Java vs. .NET}: Java melhor em máquinas poderosas, .NET melhor em máquinas menos potentes.
+    \item \textbf{Escalabilidade Vertical vs. Horizontal}: Vertical é mais econômica no Azure.
+    \item \textbf{Limite de Instâncias}: Aumento excessivo degrada a performance.
+    \item \textbf{Impacto da Tecnologia}: Implementação (Java ou C\# .NET) não afeta escalabilidade.
 \end{itemize}
 \end{frame}
-
-
 
 \section{Conclusão}
 
 \begin{frame}
 \frametitle{Conclusão}
 \begin{itemize}
-    \item Monolítica: Simplicidade, facilidade de teste, deploy, debug e monitoramento.
-    \item Microserviços: Melhor para aplicações complexas e grandes, com desafios em comunicação e gestão de dados.
+    \item \textbf{Monolítica}: Simplicidade, facilidade de teste, deploy, debug e monitoramento.
+    \item \textbf{Microserviços}: Melhor para aplicações complexas e grandes, com desafios em comunicação e gestão de dados.
 \end{itemize}
 \end{frame}
 
@@ -200,8 +202,8 @@ Comparar a performance e escalabilidade das arquiteturas monolítica e de micros
 \begin{frame}
 \frametitle{Discussão}
 \begin{itemize}
-    \item Microserviços: Vantajosos para sistemas com alta demanda e complexidade.
-    \item Monolíticas: Adequadas para pequenas empresas ou sistemas de menor escala.
+    \item \textbf{Microserviços}: Vantajosos para sistemas com alta demanda e complexidade.
+    \item \textbf{Monolíticas}: Adequadas para pequenas empresas ou sistemas de menor escala.
 \end{itemize}
 \end{frame}
 
